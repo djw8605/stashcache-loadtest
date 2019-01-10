@@ -1,0 +1,14 @@
+universe = vanilla
+output = out.$(Cluster).$(Process)
+error = err.$(Cluster).$(Process)
+
+
+Requirements = (HAS_MODULES =?= true) && (OSGVO_OS_STRING == "RHEL 7") && (OpSys == "LINUX")
+
+executable = test.sh
+transfer_input_files = test.py
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT_OR_EVICT
+log = loadtest.log
+queue 1000
+
